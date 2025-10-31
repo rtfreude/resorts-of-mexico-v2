@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/sanity.image'
 import { generateDestinationMetadata } from '@/lib/metadata'
-import { generateTouristDestinationSchema } from '@/lib/structuredData'
+import { generateDestinationSchema } from '@/lib/structuredData'
 import Container from '@/components/layout/Container'
 import Breadcrumbs from '@/components/navigation/Breadcrumbs'
 import Hero from '@/components/content/Hero'
@@ -121,7 +121,17 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
   }
 
   // Generate structured data
-  const structuredData = generateTouristDestinationSchema(destination)
+  const structuredData = generateDestinationSchema({
+    name: destination.name,
+    description: destination.shortDescription || destination.fullDescription || '',
+    image: destination.heroImage ? urlFor(destination.heroImage).url() : undefined,
+    url: `/destinations/${destination.slug.current}`,
+    address: destination.location ? {
+      city: destination.location.city,
+      state: destination.location.state,
+      country: 'MX',
+    } : undefined,
+  })
 
   // Breadcrumb items
   const breadcrumbs = [
@@ -303,8 +313,9 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
               description="Find and compare the best hotel deals"
               price="From $80/night"
               url="#"
-              buttonText="View Hotels"
+              ctaText="View Hotels"
               image={destination.heroImage}
+              partner="Booking.com"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -313,8 +324,9 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
               description="Discover exciting tours and experiences"
               price="From $25/person"
               url="#"
-              buttonText="Book Tours"
+              ctaText="Book Tours"
               image={destination.heroImage}
+              partner="Viator"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -322,8 +334,9 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
               title={`Travel Guide`}
               description="Complete travel planning resources"
               url="#"
-              buttonText="Learn More"
+              ctaText="Learn More"
               image={destination.heroImage}
+              partner="Resort of Mexico"
             />
           </Grid>
         </Grid>
