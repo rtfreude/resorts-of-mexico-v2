@@ -215,7 +215,7 @@ export default defineType({
               title: 'YouTube URL',
               type: 'url',
               validation: (Rule) =>
-                Rule.required().custom((url) => {
+                Rule.required().custom((url: string) => {
                   if (!url) return true
                   if (
                     url.includes('youtube.com/watch') ||

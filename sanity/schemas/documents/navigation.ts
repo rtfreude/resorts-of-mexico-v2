@@ -7,7 +7,6 @@ export default defineType({
   type: 'document',
   icon: MdMenu,
   // This is a singleton - only one document allowed
-  __experimental_actions: ['update', 'publish', /* 'create', 'delete' */],
   fields: [
     defineField({
       name: 'title',

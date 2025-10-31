@@ -1,4 +1,4 @@
-import { GlobalSettings } from '../sanity.queries'
+import { GlobalSettings } from './sanity.queries'
 
 /**
  * Generate Organization schema for the website

@@ -3,7 +3,6 @@
 import * as React from 'react'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { createDynamicTheme } from '@/lib/theme/dynamicTheme'
 import { GlobalSettings } from '@/lib/sanity.queries'
 import theme from '@/lib/theme'
@@ -24,11 +23,9 @@ export default function ThemeRegistry({
   )
 
   return (
-    <AppRouterCacheProvider>
-      <ThemeProvider theme={dynamicTheme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </AppRouterCacheProvider>
+    <ThemeProvider theme={dynamicTheme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
   )
 }
