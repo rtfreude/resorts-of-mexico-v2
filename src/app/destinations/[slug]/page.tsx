@@ -4,21 +4,19 @@ import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/sanity.image'
 import { generateDestinationMetadata } from '@/lib/metadata'
 import { generateDestinationSchema } from '@/lib/structuredData'
-import Container from '@/components/layout/Container'
+// ...existing code...
 import Breadcrumbs from '@/components/navigation/Breadcrumbs'
 import Hero from '@/components/content/Hero'
 import Section from '@/components/utility/Section'
 import AffiliateCard from '@/components/affiliate/AffiliateCard'
 import DestinationCard from '@/components/content/DestinationCard'
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Chip,
-  Stack,
-} from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Chip from '@mui/material/Chip'
+import Stack from '@mui/material/Stack'
 import {
   MdLocationOn,
   MdWbSunny,
