@@ -92,6 +92,7 @@ vercel
 ## Documentation
 
 - [Development Plan](./DEVELOPMENT_PLAN.md) - Comprehensive project roadmap
+- [Sanity Setup Guide](./SANITY_SETUP.md) - How to configure Sanity CMS
 - [Architecture Documentation](./ARCHITECTURE.md) - System design (coming soon)
 
 ## Contributing
