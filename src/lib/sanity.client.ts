@@ -12,6 +12,9 @@ export const config = {
 // Set up the client for fetching data in the getProps page functions
 export const sanityClient = createClient(config)
 
+// Alias for convenience
+export const client = sanityClient
+
 // Set up a preview client with a token for authenticated access
 export const previewClient = createClient({
   ...config,
