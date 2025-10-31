@@ -4,20 +4,18 @@ import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/sanity.image'
 import { generateArticleMetadata } from '@/lib/metadata'
 import { generateArticleSchema } from '@/lib/structuredData'
-import Container from '@/components/layout/Container'
+// ...existing code...
 import Breadcrumbs from '@/components/navigation/Breadcrumbs'
 import Section from '@/components/utility/Section'
 import PortableTextRenderer from '@/components/portabletext/PortableTextRenderer'
 import ArticleCard from '@/components/content/ArticleCard'
-import {
-  Box,
-  Typography,
-  Avatar,
-  Chip,
-  Stack,
-  Divider,
-  Grid,
-} from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Avatar from '@mui/material/Avatar'
+import Chip from '@mui/material/Chip'
+import Stack from '@mui/material/Stack'
+import Divider from '@mui/material/Divider'
+import Grid from '@mui/material/Grid'
 import { MdAccessTime, MdCalendarToday } from 'react-icons/md'
 import { format } from 'date-fns'
 import Image from 'next/image'
@@ -94,7 +92,7 @@ export async function generateStaticParams() {
     }`
   )
 
-  return articles.map((article: any) => ({
+  return articles.map((article: { slug: string }) => ({
     slug: article.slug,
   }))
 }
@@ -151,7 +149,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       {/* Article Header */}
       <Box sx={{ bgcolor: 'background.paper', py: 4 }}>
-        <Container>
+  {/* Removed Container wrapper */}
           <Breadcrumbs items={breadcrumbs} />
 
           {/* Categories */}
@@ -240,7 +238,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </>
             )}
           </Stack>
-        </Container>
+  {/* End removed Container wrapper */}
       </Box>
 
       {/* Featured Image */}
