@@ -4,7 +4,9 @@ import Container from '@/components/layout/Container'
 import Breadcrumbs from '@/components/navigation/Breadcrumbs'
 import Section from '@/components/utility/Section'
 import ArticleCard from '@/components/content/ArticleCard'
-import { Typography, Grid, Box } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 
 export const metadata: Metadata = {
   title: 'Articles & Travel Guides | Resort of Mexico',

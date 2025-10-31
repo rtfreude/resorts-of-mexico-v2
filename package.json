@@ -12,9 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.4",
-    "@mui/material": "^7.3.4",
-    "@mui/material-nextjs": "^7.3.3",
+    "@mui/icons-material": "^5.18.0",
+    "@mui/material": "^5.18.0",
     "@portabletext/react": "^4.0.3",
     "@sanity/color-input": "^4.0.6",
     "@sanity/image-url": "^1.2.0",
@@ -33,11 +32,11 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "prettier": "^3.1.0",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }

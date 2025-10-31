@@ -7,27 +7,27 @@ import { urlFor } from '@/lib/sanity.image'
 // Custom components for Portable Text
 const components: PortableTextComponents = {
   block: {
-    h2: ({ children }) => (
+  h2: ({ children }: { children: React.ReactNode }) => (
       <Typography variant="h2" component="h2" gutterBottom sx={{ mt: 4, mb: 2, fontWeight: 700 }}>
         {children}
       </Typography>
     ),
-    h3: ({ children }) => (
+  h3: ({ children }: { children: React.ReactNode }) => (
       <Typography variant="h3" component="h3" gutterBottom sx={{ mt: 3, mb: 2, fontWeight: 700 }}>
         {children}
       </Typography>
     ),
-    h4: ({ children }) => (
+  h4: ({ children }: { children: React.ReactNode }) => (
       <Typography variant="h4" component="h4" gutterBottom sx={{ mt: 3, mb: 1.5, fontWeight: 600 }}>
         {children}
       </Typography>
     ),
-    normal: ({ children }) => (
+  normal: ({ children }: { children: React.ReactNode }) => (
       <Typography variant="body1" paragraph sx={{ mb: 2, lineHeight: 1.8 }}>
         {children}
       </Typography>
     ),
-    blockquote: ({ children }) => (
+  blockquote: ({ children }: { children: React.ReactNode }) => (
       <Box
         component="blockquote"
         sx={{
@@ -47,32 +47,31 @@ const components: PortableTextComponents = {
     ),
   },
   list: {
-    bullet: ({ children }) => (
+  bullet: ({ children }: { children: React.ReactNode }) => (
       <Box component="ul" sx={{ pl: 4, mb: 2 }}>
         {children}
       </Box>
     ),
-    number: ({ children }) => (
+  number: ({ children }: { children: React.ReactNode }) => (
       <Box component="ol" sx={{ pl: 4, mb: 2 }}>
         {children}
       </Box>
     ),
   },
   listItem: {
-    bullet: ({ children }) => (
+  bullet: ({ children }: { children: React.ReactNode }) => (
       <Typography component="li" variant="body1" sx={{ mb: 1, lineHeight: 1.8 }}>
         {children}
       </Typography>
     ),
-    number: ({ children }) => (
+  number: ({ children }: { children: React.ReactNode }) => (
       <Typography component="li" variant="body1" sx={{ mb: 1, lineHeight: 1.8 }}>
         {children}
       </Typography>
     ),
   },
   marks: {
-    link: ({ children, value }) => {
-      const isExternal = value?.href?.startsWith('http')
+  link: ({ children, value }: { children: React.ReactNode; value: any }) => {
       return (
         <Link
           href={value?.href || ''}
@@ -92,7 +91,7 @@ const components: PortableTextComponents = {
         </Link>
       )
     },
-    internalLink: ({ children, value }) => {
+  internalLink: ({ children, value }: { children: React.ReactNode; value: any }) => {
       const href = value?.reference
         ? `/${value.reference._type}/${value.reference.slug?.current}`
         : '/'
@@ -109,9 +108,9 @@ const components: PortableTextComponents = {
         </Link>
       )
     },
-    strong: ({ children }) => <strong>{children}</strong>,
-    em: ({ children }) => <em>{children}</em>,
-    code: ({ children }) => (
+  strong: ({ children }: { children: React.ReactNode }) => <strong>{children}</strong>,
+  em: ({ children }: { children: React.ReactNode }) => <em>{children}</em>,
+  code: ({ children }: { children: React.ReactNode }) => (
       <Box
         component="code"
         sx={{
@@ -128,7 +127,7 @@ const components: PortableTextComponents = {
     ),
   },
   types: {
-    image: ({ value }) => {
+  image: ({ value }: { value: any }) => {
       const imageUrl = urlFor(value).width(800).url()
       return (
         <Box sx={{ my: 4 }}>
@@ -150,7 +149,7 @@ const components: PortableTextComponents = {
         </Box>
       )
     },
-    callout: ({ value }) => {
+  callout: ({ value }: { value: any }) => {
       const severityMap: Record<string, 'info' | 'warning' | 'error' | 'success'> = {
         info: 'info',
         tip: 'success',
@@ -169,7 +168,7 @@ const components: PortableTextComponents = {
         </Alert>
       )
     },
-    youtube: ({ value }) => {
+  youtube: ({ value }: { value: any }) => {
       const getYouTubeId = (url: string) => {
         const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
         const match = url.match(regExp)
