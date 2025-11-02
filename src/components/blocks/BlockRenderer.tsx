@@ -1,6 +1,25 @@
 import Hero from '../content/Hero'
 import PortableTextRenderer from '../portabletext/PortableTextRenderer'
 import DestinationCard from '../content/DestinationCard'
+import Quote from '../content/Quote'
+import TextImage from '../content/TextImage'
+import CardGrid from '../content/CardGrid'
+import AccordionBlock from '../content/AccordionBlock'
+import ImageGallery from '../content/ImageGallery'
+import TwoColumnText from '../content/TwoColumnText'
+import StatsBlock from '../content/StatsBlock'
+import VideoBlock from '../content/VideoBlock'
+import TabBlock from '../content/TabBlock'
+import PricingCardBlock from '../content/PricingCardBlock'
+import TestimonialCarousel from '../content/TestimonialCarousel'
+import HeadingBlock from '../content/HeadingBlock'
+import BannerAlert from '../content/BannerAlert'
+import SpacerBlock from '../content/SpacerBlock'
+import AmenitiesBlock from '../content/AmenitiesBlock'
+import SectionWrapper from '../layout/SectionWrapper'
+import MapBlock from '../content/MapBlock'
+import WeatherBlock from '../content/WeatherBlock'
+import PackageBlock from '../content/PackageBlock'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
@@ -219,6 +238,278 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                     )}
                   </Box>
                 </Container>
+              </Section>
+            )
+
+          case 'quoteBlock':
+            return (
+              <Section key={block._key || index}>
+                <Quote
+                  quote={block.quote}
+                  author={block.author}
+                  authorTitle={block.authorTitle}
+                  authorImage={block.authorImage}
+                  rating={block.rating}
+                  style={block.style}
+                  alignment={block.alignment}
+                />
+              </Section>
+            )
+
+          case 'textImageBlock':
+            return (
+              <Section key={block._key || index}>
+                <TextImage
+                  content={block.content}
+                  image={block.image}
+                  imagePosition={block.imagePosition}
+                  imageSize={block.imageSize}
+                  verticalAlign={block.verticalAlign}
+                  imageStyle={block.imageStyle}
+                  reverseOnMobile={block.reverseOnMobile}
+                />
+              </Section>
+            )
+
+          case 'cardGridBlock':
+            return (
+              <Section key={block._key || index} background="grey">
+                <CardGrid
+                  title={block.title}
+                  cards={block.cards}
+                  columns={block.columns}
+                  cardStyle={block.cardStyle}
+                  iconPosition={block.iconPosition}
+                  textAlign={block.textAlign}
+                />
+              </Section>
+            )
+
+          case 'accordionBlock':
+            return (
+              <Section key={block._key || index}>
+                <AccordionBlock
+                  title={block.title}
+                  items={block.items}
+                  style={block.style}
+                  allowMultiple={block.allowMultiple}
+                  firstOpen={block.firstOpen}
+                />
+              </Section>
+            )
+
+          case 'imageGalleryBlock':
+            return (
+              <Section key={block._key || index}>
+                <ImageGallery
+                  title={block.title}
+                  images={block.images}
+                  layout={block.layout}
+                  columns={block.columns}
+                  gap={block.gap}
+                  aspectRatio={block.aspectRatio}
+                  showCaptions={block.showCaptions}
+                  enableLightbox={block.enableLightbox}
+                />
+              </Section>
+            )
+
+          case 'twoColumnTextBlock':
+            return (
+              <Section key={block._key || index}>
+                <TwoColumnText
+                  leftColumn={block.leftColumn}
+                  rightColumn={block.rightColumn}
+                  columnRatio={block.columnRatio}
+                  verticalAlign={block.verticalAlign}
+                  gap={block.gap}
+                />
+              </Section>
+            )
+
+          case 'statsBlock':
+            return (
+              <Section key={block._key || index} background="grey">
+                <StatsBlock
+                  title={block.title}
+                  stats={block.stats}
+                  columns={block.columns}
+                  style={block.style}
+                  alignment={block.alignment}
+                />
+              </Section>
+            )
+
+          case 'videoBlock':
+            return (
+              <Section key={block._key || index}>
+                <VideoBlock
+                  title={block.title}
+                  videoSource={block.videoSource}
+                  url={block.url}
+                  aspectRatio={block.aspectRatio}
+                  caption={block.caption}
+                  maxWidth={block.maxWidth}
+                />
+              </Section>
+            )
+
+          case 'tabBlock':
+            return (
+              <Section key={block._key || index}>
+                <TabBlock
+                  title={block.title}
+                  tabs={block.tabs}
+                  tabStyle={block.tabStyle}
+                  tabAlignment={block.tabAlignment}
+                />
+              </Section>
+            )
+
+          case 'pricingCardBlock':
+            return (
+              <Section key={block._key || index}>
+                <PricingCardBlock
+                  title={block.title}
+                  subtitle={block.subtitle}
+                  cards={block.cards}
+                  columns={block.columns}
+                />
+              </Section>
+            )
+
+          case 'testimonialCarouselBlock':
+            return (
+              <Section key={block._key || index} background="grey">
+                <TestimonialCarousel
+                  title={block.title}
+                  testimonials={block.testimonials}
+                  layout={block.layout}
+                  autoplay={block.autoplay}
+                  showNavigation={block.showNavigation}
+                  showIndicators={block.showIndicators}
+                />
+              </Section>
+            )
+
+          case 'headingBlock':
+            return (
+              <Section key={block._key || index}>
+                <HeadingBlock
+                  text={block.text}
+                  level={block.level}
+                  alignment={block.alignment}
+                  style={block.style}
+                  spacing={block.spacing}
+                />
+              </Section>
+            )
+
+          case 'bannerAlertBlock':
+            return (
+              <BannerAlert
+                key={block._key || index}
+                message={block.message}
+                type={block.type}
+                showIcon={block.showIcon}
+                dismissible={block.dismissible}
+                cta={block.cta}
+              />
+            )
+
+          case 'spacerBlock':
+            return (
+              <SpacerBlock
+                key={block._key || index}
+                height={block.height}
+                customHeight={block.customHeight}
+                dividerStyle={block.dividerStyle}
+                dividerWidth={block.dividerWidth}
+              />
+            )
+
+          case 'amenitiesBlock':
+            return (
+              <Section key={block._key || index}>
+                <AmenitiesBlock
+                  title={block.title}
+                  amenities={block.amenities}
+                  layout={block.layout}
+                  columns={block.columns}
+                  showIcons={block.showIcons}
+                  showDescriptions={block.showDescriptions}
+                />
+              </Section>
+            )
+
+          case 'sectionWrapperBlock':
+            return (
+              <SectionWrapper
+                key={block._key || index}
+                backgroundColor={block.backgroundColor}
+                paddingTop={block.paddingTop}
+                paddingBottom={block.paddingBottom}
+                containerWidth={block.containerWidth}
+                addTopBorder={block.addTopBorder}
+                addBottomBorder={block.addBottomBorder}
+              >
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  {block.content?.map((innerBlock: any, innerIndex: number) => {
+                    // Recursively render nested blocks
+                    return (
+                      <BlockRenderer
+                        key={innerBlock._key || innerIndex}
+                        blocks={[innerBlock]}
+                      />
+                    )
+                  })}
+                </Box>
+              </SectionWrapper>
+            )
+
+          case 'mapBlock':
+            return (
+              <Section key={block._key || index}>
+                <MapBlock
+                  title={block.title}
+                  description={block.description}
+                  mapType={block.mapType}
+                  embedUrl={block.embedUrl}
+                  staticImage={block.staticImage}
+                  locations={block.locations}
+                  height={block.height}
+                  showLocationList={block.showLocationList}
+                  locationListPosition={block.locationListPosition}
+                  borderRadius={block.borderRadius}
+                />
+              </Section>
+            )
+
+          case 'weatherBlock':
+            return (
+              <Section key={block._key || index}>
+                <WeatherBlock
+                  title={block.title}
+                  locationName={block.locationName}
+                  monthlyData={block.monthlyData}
+                  bestTimeToVisit={block.bestTimeToVisit}
+                  displayStyle={block.displayStyle}
+                  showMetrics={block.showMetrics}
+                  backgroundColor={block.backgroundColor}
+                />
+              </Section>
+            )
+
+          case 'packageBlock':
+            return (
+              <Section key={block._key || index}>
+                <PackageBlock
+                  title={block.title}
+                  subtitle={block.subtitle}
+                  packages={block.packages}
+                  layout={block.layout}
+                  columns={block.columns}
+                />
               </Section>
             )
 
