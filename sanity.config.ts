@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
+import { presentationTool } from 'sanity/presentation'
 import { colorInput } from '@sanity/color-input'
 import { schemaTypes } from './sanity/schemas'
 
@@ -13,7 +14,19 @@ export default defineConfig({
 
   basePath: '/studio',
 
-  plugins: [structureTool(), visionTool(), colorInput()],
+  plugins: [
+    structureTool(),
+    visionTool(),
+    presentationTool({
+      previewUrl: {
+        origin: 'http://localhost:3000',
+        previewMode: {
+          enable: '/api/draft',
+        },
+      },
+    }),
+    colorInput(),
+  ],
 
   schema: {
     types: schemaTypes,

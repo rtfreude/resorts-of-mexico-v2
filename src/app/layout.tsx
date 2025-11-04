@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { draftMode } from 'next/headers'
+import { VisualEditing } from 'next-sanity/visual-editing'
 import ThemeRegistry from '@/components/providers/ThemeRegistry'
 import { sanityClient } from '@/lib/sanity.client'
 import { globalSettingsQuery, GlobalSettings } from '@/lib/sanity.queries'
@@ -58,6 +60,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const settings = await getGlobalSettings()
+  const isDraftMode = (await draftMode()).isEnabled
 
   // Generate structured data
   const organizationSchema = generateOrganizationSchema(settings)
@@ -77,6 +80,7 @@ export default async function RootLayout({
       </head>
       <body>
         <ThemeRegistry settings={settings}>{children}</ThemeRegistry>
+        {isDraftMode && <VisualEditing />}
       </body>
     </html>
   )
